@@ -1,0 +1,13 @@
+.landing {
+  background-image: url(../../img/worldcollage.png);
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: contain;
+}
+
+.titleLand {
+  font-family: 'Modern Love Caps', 'Trade Gothic Next', 'Britannic Bold';
+}
