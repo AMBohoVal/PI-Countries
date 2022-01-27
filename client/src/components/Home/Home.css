@@ -6,3 +6,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

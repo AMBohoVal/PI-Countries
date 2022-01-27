@@ -1,0 +1,9 @@
+.pages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.number {
+  list-style: none;
+}

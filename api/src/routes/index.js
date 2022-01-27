@@ -58,7 +58,7 @@ async function apiDB (){
 
 router.get('/Country', async (req, res, next)=> {
   //apiDB();
-  const {name} = req.query;
+  const {countryQ} = req.query;
   
   const list = await Country.findAll({
     attributes: ['nameCountry', 'continent', 'flag', 'id', 'capital', 'subregion', 'area', 'population', 'coatOfArms']
@@ -67,8 +67,8 @@ router.get('/Country', async (req, res, next)=> {
   try {
     let countriesApi = await getApiInfo();
     
-    if(name){
-      const searchCountry = await countriesApi.filter(c => c.nameCountry.toLowerCase().includes(name.toLowerCase()))
+    if(countryQ){
+      const searchCountry = await countriesApi.filter(c => c.nameCountry.toLowerCase().includes(countryQ.toLowerCase()))
       searchCountry.length ?
       res.status(200).send(searchCountry) : 
       res.status(404).send("No existe pais");

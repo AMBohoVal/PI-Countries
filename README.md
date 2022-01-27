@@ -42,7 +42,7 @@ Para verificar que versión tienen instalada:
 
 ## BoilerPlate
 
-El boilerplate cuenta con dos carpetas: `api` (back-end) y `client`(front-end). En estas carpetas estará el código del back-end y el front-end respectivamente. ✅❌
+El boilerplate cuenta con dos carpetas: `api` (back-end) y `client`(front-end). En estas carpetas estará el código del back-end y el front-end respectivamente. 
 
 En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
 
@@ -52,19 +52,19 @@ DB_PASSWORD=passwordDePostgres
 DB_HOST=localhost
 ```
 
-Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
+Reemplazar `usuariodepostgres`✅ y `passwordDePostgres`✅ con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
 
-Adicionalmente será necesario que creen desde psql una base de datos llamada `countries`
+Adicionalmente será necesario que creen desde psql una base de datos llamada `countries` ✅
 
 El contenido de `client` fue creado usando: Create React App.
 
-## Enunciado
+## Enunciado 
 
 La idea general es crear una aplicación en la cual se pueda ver información de distintos paises utilizando la api externa [restcountries](https://restcountries.com/) y a partir de ella poder, entre otras cosas:
 
-  - Buscar paises
-  - Filtrarlos / Ordenarlos
-  - Crear actividades turísticas
+  - Buscar paises ✅
+  - Filtrarlos / Ordenarlos ✅
+  - Crear actividades turísticas ❌
 
 __IMPORTANTE__: Para las funcionalidades de filtrado y ordenamiento NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados sino que deben realizarlo ustedes mismos. En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend.
 
@@ -88,32 +88,32 @@ __IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estil
 
 #### Frontend
 
-Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
+Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas. 
 
 __Pagina inicial__: deben armar una landing page con
-- [ ] Alguna imagen de fondo representativa al proyecto
-- [ ] Botón para ingresar al home (`Ruta principal`)
+- [ ] Alguna imagen de fondo representativa al proyecto ✅
+- [ ] Botón para ingresar al home (`Ruta principal`) ✅
 
 __Ruta principal__: debe contener
-- [ ] Input de búsqueda para encontrar países por nombre
+- [ ] Input de búsqueda para encontrar países por nombre ✅
 - [ ] Área donde se verá el listado de países. Al iniciar deberá cargar los primeros resultados obtenidos desde la ruta `GET /countries` y deberá mostrar su:
-  - Imagen de la bandera
-  - Nombre
-  - Continente
-- [ ] Botones/Opciones para filtrar por continente y por tipo de actividad turística
-- [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los países por orden alfabético y por cantidad de población
-- [ ] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
+  - Imagen de la bandera ✅
+  - Nombre ✅
+  - Continente ✅
+- [ ] Botones/Opciones para filtrar por continente ✅ y por tipo de actividad turística ❌
+- [ ] Botones/Opciones para ordenar tanto ascendentemente ✅ como descendentemente ✅ los países por orden alfabético y por cantidad de población ❌
+- [ ] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina. ✅
 
-__Ruta de detalle de país__: debe contener
+__Ruta de detalle de país__: debe contener 
 - [ ] Los campos mostrados en la ruta principal para cada país (imagen de la bandera, nombre, código de país de 3 letras y continente)
-- [ ] Código de país de 3 letras (id)
-- [ ] Capital
-- [ ] Subregión
-- [ ] Área (Mostrarla en km2 o millones de km2)
-- [ ] Población
-- [ ] Actividades turísticas con toda su información asociada
+- [ ] Código de país de 3 letras (id) ✅
+- [ ] Capital ✅
+- [ ] Subregión ✅
+- [ ] Área (Mostrarla en km2 o millones de km2) ✅
+- [ ] Población ✅
+- [ ] Actividades turísticas con toda su información asociada ❌
 
-__Ruta de creación de actividad turística__: debe contener
+❌__Ruta de creación de actividad turística__: debe contener
 - [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
   - Nombre
   - Dificultad
@@ -126,18 +126,18 @@ __Ruta de creación de actividad turística__: debe contener
 
 #### Base de datos
 
-El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias):
+El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias): 
 
 - [ ] ✅País con las siguientes propiedades:
-  - ID (Código de 3 letras) *
-  - Nombre *
-  - Imagen de la bandera *
-  - Continente *
-  - Capital *
-  - Subregión
-  - Área
-  - Población
-- [ ] ✅Actividad Turística con las siguientes propiedades:
+  - ID (Código de 3 letras) * ✅
+  - Nombre * ✅
+  - Imagen de la bandera * ✅
+  - Continente * ✅
+  - Capital * ✅
+  - Subregión ✅
+  - Área ✅
+  - Población ✅
+- [ ] ❌Actividad Turística con las siguientes propiedades:
   - ID
   - Nombre
   - Dificultad (Entre 1 y 5)
@@ -148,7 +148,7 @@ El modelo de la base de datos deberá tener las siguientes entidades (Aquellas p
 
 #### Backend
 
-Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
+Se debe desarrollar un servidor en Node/Express con las siguientes rutas: 
 
 __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
 
@@ -162,12 +162,12 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 - [ ] ✅__GET /countries?name="..."__:
   - Obtener los países que coincidan con el nombre pasado como query parameter (No necesariamente tiene que ser una matcheo exacto)
   - Si no existe ningún país mostrar un mensaje adecuado
-- [ ] __POST /activity__:
+- [ ] __POST /activity__: ❌
   - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de actividad turística por body
   - Crea una actividad turística en la base de datos
 
 
-#### Testing
+#### ❌Testing
 - [ ] Al menos tener un componente del frontend con sus tests respectivos
 - [ ] Al menos tener una ruta del backend con sus tests respectivos
 - [ ] Al menos tener un modelo de la base de datos con sus tests respectivos

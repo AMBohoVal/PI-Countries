@@ -1,0 +1,7 @@
+.country {
+  width: 130px;
+  height: 190px;
+  border: 2px solid rgba(7, 35, 192, 0.685);
+  align-content: center;
+  margin: 20px;
+}
