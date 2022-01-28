@@ -2,8 +2,13 @@ const axios = require('axios');
 const { Country } = require('../db');
 
 
+
 const loadDB = async ()=> {
   try{
+    const validate = await Country.findOne({
+      where: {nameCountry: 'Colombia'}
+    });
+    
     const apiGet = await axios.get('https://restcountries.com/v3.1/all');
     const apiInfo = await apiGet.data.map(c => {
       return {
@@ -19,21 +24,23 @@ const loadDB = async ()=> {
       }
     })
 
-    await apiInfo.map(co => {
-      Country.create({
-        id: co.id,
-        nameCountry: co.nameCountry,
-        flag: co.flag,
-        continent: co.continent,
-        capital: co.capital,
-        subregion: co.subregion,
-        area: co.area,
-        population: co.population,
-        coatOfArms: co.coatOfArms,
+    if(!validate){
+      await apiInfo.map(async co => {
+        Country.create({
+          id: co.id,
+          nameCountry: co.nameCountry,
+          flag: co.flag,
+          continent: co.continent,
+          capital: co.capital,
+          subregion: co.subregion,
+          area: co.area,
+          population: co.population,
+          coatOfArms: co.coatOfArms,
+        })
       })
-    })
+      console.log('Paises guardados')
+    } 
 
-    console.log('Paises guardados')
   } catch(error){
     console.log(error);
   }

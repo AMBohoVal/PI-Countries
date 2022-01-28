@@ -7,17 +7,21 @@ const {Country, Tourist_activity} = require('../db');
 const router = Router();
 
 router.get('/Country', async (req, res, next)=> {
-  const {countryQ} = req.query;
-  
-  const list = await Country.findAll({
-    attributes: ['nameCountry', 'continent', 'flag', 'id', 'capital', 'subregion', 'area', 'population', 'coatOfArms']
-  });
-  
   try {
-    let countriesApi = await getApiInfo();
+    const {countryQ} = req.query;
+    const list = await Country.findAll({
+      attributes: ['nameCountry', 'continent', 'flag', 'id', 'capital', 'subregion', 'area', 'population', 'coatOfArms']
+    });
     
+    //let countriesApi = await getApiInfo();
+    
+    const validate = await Country.findOne({
+      where: {nameCountry: 'Colombia'}
+    });
+    console.log(validate);
+
     if(countryQ){
-      const searchCountry = await countriesApi.filter(c => c.nameCountry.toLowerCase().includes(countryQ.toLowerCase()))
+      const searchCountry = await list.filter(c => c.nameCountry.toLowerCase().includes(countryQ.toLowerCase()))
       searchCountry.length ?
       res.status(200).send(searchCountry) : 
       res.status(404).send("No existe pais");

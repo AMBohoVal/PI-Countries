@@ -23,7 +23,7 @@ const loadDB = require('./src/loadDatabase/loadDBCountries.js');
 
 // Syncing all the models at once.
 
-conn.sync({force: true}).then(async()=> {
+conn.sync({force: false}).then(async()=> {
   try{
       await loadDB();
       console.log("Countries loaded");
