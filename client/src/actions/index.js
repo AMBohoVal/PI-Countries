@@ -2,8 +2,9 @@ import axios from 'axios';
 export const GET_COUNTRY = 'GET_COUNTRY';
 export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
 export const GET_DETAILS = 'GET_DETAILS;'
-export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT';
 export const ORDER_BY_COUNTRY = 'ORDER_BY_COUNTRY';
+export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT';
+export const FILTER_BY_POPULATION = 'FILTER_BY_POPULATION';
 
 
 export function getCountry(){
@@ -48,6 +49,13 @@ export function getDetails(id){
   }
 }
 
+export function orderByCountry(payload){
+  return {
+    type: "ORDER_BY_COUNTRY",
+    payload
+  }
+}
+
 export function filterCountryByContinent(payload){
   return {
     type: "FILTER_BY_CONTINENT",
@@ -55,9 +63,9 @@ export function filterCountryByContinent(payload){
   }
 }
 
-export function orderByCountry(payload){
+export function filterCountryByPopulation(payload){
   return {
-    type: "ORDER_BY_COUNTRY",
+    type: "FILTER_BY_POPULATION",
     payload
   }
 }

@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCountryName } from '../../actions';
 
-export default function SearchBar(){
+
+export default function SearchBar({setCurrentPage}){
   const dispatch = useDispatch();
   const [countryQ, setCountryQ] = useState("");
-  
+
   function handleInputChange(ev){
     console.log(ev.target.value)
     ev.preventDefault();
@@ -16,8 +17,9 @@ export default function SearchBar(){
   function handleSubmit(ev){
     ev.preventDefault();
     dispatch(getCountryName(countryQ))
+    setCurrentPage(1);
   }
-
+  
     return (
       <div>
         <input 

@@ -6,4 +6,5 @@
 
 .number {
   list-style: none;
+  cursor: pointer;
 }

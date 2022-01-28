@@ -26,7 +26,7 @@ export default function Details(){
           <h3>Capital: {countryDetail.capital[0]}</h3>
           <h4>Codigo: {countryDetail.id}</h4>
           <h4>Subregión: {countryDetail.subregion}</h4>
-          <h4>Área: {countryDetail.area.toLocaleString('de-DE')} Km2</h4>
+          <h4>Área: {parseInt(countryDetail.area).toLocaleString('de-DE')} Km2</h4>
           <h4>Población: {countryDetail.population.toLocaleString('de-DE')}</h4>
         </div> : <p>Buscando.....</p>
       }

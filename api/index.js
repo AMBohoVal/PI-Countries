@@ -19,12 +19,25 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-//const apiDB = require('./src/routes/index.js');
+const loadDB = require('./src/loadDatabase/loadDBCountries.js');
 
 // Syncing all the models at once.
-conn.sync({alter: true}).then(() => {
-  //apiDB(); //Funcion que trae la info de Api y la BD
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
+
+conn.sync({force: true}).then(async()=> {
+  try{
+      await loadDB();
+      console.log("Countries loaded");
+
+      server.listen(3001, () => {
+        console.log('%s listening at 3001'); // eslint-disable-line no-console
+      });
+  } catch(error){
+    console.log(error)
+  }
 });
+
+// conn.sync({alter: true}).then(() => {
+//   server.listen(3001, () => {
+//     console.log('%s listening at 3001'); // eslint-disable-line no-console
+//   });
+// });

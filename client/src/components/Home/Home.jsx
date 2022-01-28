@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCountry, filterCountryByContinent, orderByCountry } from '../../actions';
+import { getCountry, filterCountryByContinent, orderByCountry, filterCountryByPopulation } from '../../actions';
 import './Home.css'
 import Card from '../Card/Card.jsx';
 import Pages from '../Pages/Pages.jsx';
@@ -25,6 +25,7 @@ export default function Home(){
 
   useEffect(()=> {
     dispatch(getCountry());
+    dispatch(getCountry());
   }, [dispatch])
 
   function handleClick(ev){
@@ -44,21 +45,29 @@ export default function Home(){
     setInOrder(`Ordenado ${ev.target.value}`)
   }
 
+  function handleSortPopulation(ev){
+    ev.preventDefault();
+    dispatch(filterCountryByPopulation(ev.target.value))
+    setCurrentPage(1);
+    setInOrder(`Ordenado ${ev.target.value}`)
+  }
+
   return (
     <div className= "home">
-        <SearchBar />
+        <SearchBar setCurrentPage={setCurrentPage}/>
         <h1>¡Bienvenidos a Paises!</h1>
         <button onClick= {ev=> {handleClick(ev)}}>
           Limpiar filtro
         </button>
         <div>
           <select onChange={ev=> handleSort(ev)}>
-            <option value='asc'>Ascendente</option>
-            <option value='desc'>Descendente</option>
+            <option>Alfabeticamente</option>
+            <option value='asc'>A - Z</option>
+            <option value='desc'>Z - A</option>
           </select>
           
           <select onChange={ev=> handleFilterContinent(ev)}>
-            <option value='All'>Todos</option>
+            <option>Continente</option>
             <option value='Africa'>África</option>
             <option value='Americas'>América</option>
             <option value='Antarctic'>Antártica</option>
@@ -66,10 +75,12 @@ export default function Home(){
             <option value='Europe'>Europa</option>
             <option value='Oceania'>Oceanía</option>
           </select>
-          {/* <select>
-            <option value=''></option>
-            <option value=''></option>
-          </select> */}
+          
+          <select onChange={ev=> handleSortPopulation(ev)}>
+            <option>Población</option>
+            <option value='less'>Menor población</option>
+            <option value='high'>Mayor población</option>
+          </select>
 
           <Pages 
               countryByPage = {countryByPage}
