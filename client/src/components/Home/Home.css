@@ -12,3 +12,25 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.az {
+  margin: 10px 20px 2px 20px;
+}
+
+.continentes {
+  margin: 10px 20px 2px 20px;
+}
+
+.poblacion {
+  margin: 10px 20px 2px 20px;
+}
+
+.bfiltro {
+  margin: 10px 20px 2px 0px;
+}

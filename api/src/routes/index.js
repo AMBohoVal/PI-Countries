@@ -14,11 +14,6 @@ router.get('/Country', async (req, res, next)=> {
     });
     
     //let countriesApi = await getApiInfo();
-    
-    const validate = await Country.findOne({
-      where: {nameCountry: 'Colombia'}
-    });
-    console.log(validate);
 
     if(countryQ){
       const searchCountry = await list.filter(c => c.nameCountry.toLowerCase().includes(countryQ.toLowerCase()))

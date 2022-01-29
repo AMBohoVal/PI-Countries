@@ -55,38 +55,41 @@ export default function Home(){
   return (
     <div className= "home">
         <SearchBar setCurrentPage={setCurrentPage}/>
-        <h1>¡Bienvenidos a Paises!</h1>
-        <button onClick= {ev=> {handleClick(ev)}}>
-          Limpiar filtro
-        </button>
+        
         <div>
-          <select onChange={ev=> handleSort(ev)}>
-            <option>Alfabeticamente</option>
-            <option value='asc'>A - Z</option>
-            <option value='desc'>Z - A</option>
-          </select>
-          
-          <select onChange={ev=> handleFilterContinent(ev)}>
-            <option>Continente</option>
-            <option value='Africa'>África</option>
-            <option value='Americas'>América</option>
-            <option value='Antarctic'>Antártica</option>
-            <option value='Asia'>Asia</option>
-            <option value='Europe'>Europa</option>
-            <option value='Oceania'>Oceanía</option>
-          </select>
-          
-          <select onChange={ev=> handleSortPopulation(ev)}>
-            <option>Población</option>
-            <option value='less'>Menor población</option>
-            <option value='high'>Mayor población</option>
-          </select>
+          <div className= "filtros">
+            <div className= "az">
+              <select onChange={ev=> handleSort(ev)}>
+                <option>Alfabeticamente</option>
+                <option value='asc'>A - Z</option>
+                <option value='desc'>Z - A</option>
+              </select>
+            </div>
+            <div className= "continentes">
+              <select onChange={ev=> handleFilterContinent(ev)}>
+                <option>Continente</option>
+                <option value='Africa'>África</option>
+                <option value='Americas'>América</option>
+                <option value='Antarctic'>Antártica</option>
+                <option value='Asia'>Asia</option>
+                <option value='Europe'>Europa</option>
+                <option value='Oceania'>Oceanía</option>
+              </select>
+            </div>
+            <div className= "poblacion">
+              <select onChange={ev=> handleSortPopulation(ev)}>
+                <option>Población</option>
+                <option value='less'>Menor población</option>
+                <option value='high'>Mayor población</option>
+              </select>
+            </div>
+            <div className= "bfiltro">
+              <button onClick= {ev=> {handleClick(ev)}}>
+                Limpiar filtro
+              </button>
+            </div>
+          </div>
 
-          <Pages 
-              countryByPage = {countryByPage}
-              allCountries = {allCountries.length}
-              showPages = {showPages}
-            />
           <div className= "cards">
             {
               currentCountry?.map(co=> {
@@ -96,6 +99,12 @@ export default function Home(){
               })
             }
           </div>
+          
+          <Pages 
+              countryByPage = {countryByPage}
+              allCountries = {allCountries.length}
+              showPages = {showPages}
+            />
         </div>
     </div>
   )

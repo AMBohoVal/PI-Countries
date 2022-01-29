@@ -1,7 +1,13 @@
 .country {
-  width: 130px;
-  height: 190px;
-  border: 2px solid rgba(7, 35, 192, 0.685);
-  align-content: center;
-  margin: 20px;
+  display: flex;
+  width: 230px;
+  height: 230px;
+  border: 2px solid rgba(6, 6, 75);
+  margin: 30px 10px 10px 10px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 10px 5px 5px rgba(18, 3, 150, 0.747);
+  border-radius: 15px;
+  font-family:Tahoma;
 }
