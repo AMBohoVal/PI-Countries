@@ -58,14 +58,14 @@ export default function Home(){
         
         <div>
           <div className= "filtros">
-            <div className= "az">
+            <div className= "filtro">
               <select onChange={ev=> handleSort(ev)}>
                 <option>Alfabeticamente</option>
                 <option value='asc'>A - Z</option>
                 <option value='desc'>Z - A</option>
               </select>
             </div>
-            <div className= "continentes">
+            <div className= "filtro">
               <select onChange={ev=> handleFilterContinent(ev)}>
                 <option>Continente</option>
                 <option value='Africa'>África</option>
@@ -76,15 +76,15 @@ export default function Home(){
                 <option value='Oceania'>Oceanía</option>
               </select>
             </div>
-            <div className= "poblacion">
+            <div className= "filtro">
               <select onChange={ev=> handleSortPopulation(ev)}>
                 <option>Población</option>
                 <option value='less'>Menor población</option>
                 <option value='high'>Mayor población</option>
               </select>
             </div>
-            <div className= "bfiltro">
-              <button onClick= {ev=> {handleClick(ev)}}>
+            <div>
+              <button onClick= {ev=> {handleClick(ev)}} className= "bfiltro">
                 Limpiar filtro
               </button>
             </div>

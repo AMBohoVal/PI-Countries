@@ -19,18 +19,95 @@
   flex-direction: row;
 }
 
-.az {
-  margin: 10px 20px 2px 20px;
+.filtro {
+  margin: 45px 5px 5px 5px;
+  border:1px solid #d9d9d9;
+  height:30px;
+  overflow: hidden;
+  width: 170px;
+  position:relative;
+  border-radius: 5px;
 }
 
-.continentes {
-  margin: 10px 20px 2px 20px;
+.filtro select {
+  background:white;
+  border: none;
+  font-size: 15px;
+  height: 30px;
+  padding: 5px;
+  width: 250px;
+  font-family: 'Lucida Sans';
 }
 
-.poblacion {
-  margin: 10px 20px 2px 20px;
+.filtro select:focus {
+  outline: none;
 }
+
+.filtro::after {
+  content:"\025be";
+	display:table-cell;
+	padding-top:7px;
+	text-align:center;
+	width:30px;
+	height:30px;
+	background-color:#d9d9d9;
+	position:absolute;
+	top:0;
+	right:0px;	
+	pointer-events: none;
+}
+
+/* .bfiltro {
+  margin: 50px 5px 5px 5px;
+  text-align: center;
+  border-radius:30px;
+} */
 
 .bfiltro {
-  margin: 10px 20px 2px 0px;
+  margin: 40px 5px 5px 5px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 1;
+  padding: 12px 15px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family:'Lucida Sans Regular';
+  font-weight: 700;
+  
+  border-color: rgb(7, 18, 161);
+  color: rgb(7, 18, 161);
+  /* color: #fff; #f1c40f*/
+  background-image: -webkit-linear-gradient(45deg, rgb(7, 18, 161) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, rgb(7, 18, 161) 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+}
+.bfiltro:hover {
+  background-position: 0;
+  color: #fff;
+  outline: 0;
+}
+
+.bfiltro:focus {
+  color: #fff;
+  outline: 0;
 }

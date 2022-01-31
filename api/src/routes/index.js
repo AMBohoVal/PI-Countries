@@ -33,9 +33,21 @@ router.get('/Country/:id', async (req, res, next) => {
     const {id} = req.params;
 
     const countrieId = await Country.findByPk(id.toUpperCase());
-    console.log(countrieId.dataValues);
     
     res.json(countrieId || 'ID de la ciudad no existe');
+  } catch(error) {
+    next(error)
+  }
+});
+
+router.get('/AllCountries', async(req, res, next) => {
+  try{
+    const allCountries = await Country.findAll({
+      attributes: ['nameCountry']
+    });
+
+    res.status(200).send(allCountries)
+
   } catch(error) {
     next(error)
   }
@@ -54,6 +66,19 @@ router.post('/TourActivity', async (req, res, next)=> {
   } catch(error){
     next(error)
   }
-})
+});
+
+router.get('/TourActivity', async(req, res, next) => {
+  try{
+    const tourActivity = await Tourist_activity.findAll({
+      attributes: ['id', 'nameActivity', 'difficulty', 'span', 'season']
+    });
+
+    res.status(200).send(tourActivity)
+
+  } catch(error) {
+    next(error)
+  }
+});
 
 module.exports = router;

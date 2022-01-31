@@ -3,7 +3,7 @@
   width: 230px;
   height: 230px;
   border: 2px solid rgba(6, 6, 75);
-  margin: 30px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;

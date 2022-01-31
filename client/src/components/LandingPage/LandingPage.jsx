@@ -8,8 +8,10 @@ export default function LandingPage(){
   return (
     <div className= "landing">
       <h1 className= "titleLand">¡Bienvenidos a Paises!</h1>
-      <Link exact to= "/home">
-          <button className= "buttonLand" >Ingresar</button>
+      <Link exact to= "/home" style={{ textDecoration: 'none' }}>
+          <div className= "wrap">
+            <button className= "buttonLand" >Ingresar</button>
+          </div>
       </Link>
     </div>
   );

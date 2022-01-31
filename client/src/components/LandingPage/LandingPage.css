@@ -10,5 +10,98 @@
 
 .titleLand {
   font-family: Georgia;
-  /* 'Trebuchet MS' 'Lucida Sans Unicode' 'Lucida Sans' Cambria Georgia Tahoma 'Modern Love Caps', 'Trade Gothic Next', 'Britannic Bold'*/
+  font-size: 50px;
+  padding: 40px 40px;
+  text-align: left;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  color: #1B4F72;
+  letter-spacing: .05em;
+  text-shadow: 
+    4px 4px 0px #d5d5d5, 
+    7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+.wrap {
+  height: 100%;
+  display:flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 50px;
+}
+
+.buttonLand {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Trebuchet MS';
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #A9CCE3;
+  background: #7FB3D5;
+  background: linear-gradient(90deg, rgba(36, 113, 163) 0%, rgba(26, 82, 118) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(84, 153, 199);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position:relative;
+  padding: 10px;
+  }
+
+  .buttonLand::before {
+  content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #2471A3;
+  box-shadow: 0 0 60px rgba(84, 153, 199);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.buttonLand:hover, .buttonLand:focus {
+  color: #5499C7;
+  transform: translateY(-6px);
+}
+
+.buttonLand:hover::before, .buttonLand:focus::before {
+  opacity: 1;
+}
+
+.buttonLand::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #5499C7;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1s infinite;
+}
+
+.buttonLand:hover::after, .buttonLand:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
 }

@@ -32,7 +32,7 @@ export default function Details(){
       }
 
       
-          <button><Link to='/home'>Volver</Link></button>
+          <button><Link to='/home' style={{ textDecoration: 'none' }}>Volver</Link></button>
       
     </div>
   )
