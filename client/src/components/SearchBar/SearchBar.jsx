@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getCountryName } from '../../actions';
-
 
 export default function SearchBar({setCurrentPage}){
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ export default function SearchBar({setCurrentPage}){
   
     return (
       <div>
+        <NavLink to="/TourActivity">Crear Actividad</NavLink>
         <input 
           type='text'
           placeholder='Buscar pais'

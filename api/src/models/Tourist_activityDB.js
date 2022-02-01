@@ -24,11 +24,16 @@ module.exports = (sequelize) => {
     },
     span: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     season: { //type: DataTypes.ENUM('active', 'injured', 'retired')
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM('summer', 'winter', 'spring', 'autumn', 'anyone'),
       allowNull: false,
     },
+    country: {
+      //type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    }
   });
 };

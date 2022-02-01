@@ -43,7 +43,8 @@ router.get('/Country/:id', async (req, res, next) => {
 router.get('/AllCountries', async(req, res, next) => {
   try{
     const allCountries = await Country.findAll({
-      attributes: ['nameCountry']
+      attributes: ['nameCountry'],
+      order: [['nameCountry', 'ASC']]
     });
 
     res.status(200).send(allCountries)
@@ -55,12 +56,13 @@ router.get('/AllCountries', async(req, res, next) => {
 
 router.post('/TourActivity', async (req, res, next)=> {
   try{
-    const {nameActivity, difficulty, span, season} = req.body;
+    const {nameActivity, difficulty, span, season, country} = req.body;
     const newTourActivity = await Tourist_activity.create({
       nameActivity,
       difficulty,
       span,
-      season
+      season,
+      country
     })
     res.send(newTourActivity)
   } catch(error){
@@ -71,7 +73,7 @@ router.post('/TourActivity', async (req, res, next)=> {
 router.get('/TourActivity', async(req, res, next) => {
   try{
     const tourActivity = await Tourist_activity.findAll({
-      attributes: ['id', 'nameActivity', 'difficulty', 'span', 'season']
+      attributes: ['id', 'nameActivity', 'difficulty', 'span', 'season', 'country']
     });
 
     res.status(200).send(tourActivity)

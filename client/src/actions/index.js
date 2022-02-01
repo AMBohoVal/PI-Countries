@@ -5,6 +5,7 @@ export const GET_DETAILS = 'GET_DETAILS;'
 export const ORDER_BY_COUNTRY = 'ORDER_BY_COUNTRY';
 export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT';
 export const FILTER_BY_POPULATION = 'FILTER_BY_POPULATION';
+export const GET_ONLY_COUNTRIES = 'GET_ONLY_COUNTRIES';
 
 
 export function getCountry(){
@@ -67,5 +68,31 @@ export function filterCountryByPopulation(payload){
   return {
     type: "FILTER_BY_POPULATION",
     payload
+  }
+}
+
+export function getOnlyCountries(){
+  return async function(dispatch){
+    try{
+      var jsonOnlyCountry = await axios.get('http://localhost:3001/api/AllCountries');
+        return dispatch({
+            type: "GET_ONLY_COUNTRIES",
+            payload: jsonOnlyCountry.data
+        })
+    } catch (error){
+      console.log(error)
+    }
+  }
+}
+
+export function postTourActivity(payload){
+  return async function (dispatch){
+    try{
+      const actTour = await axios.post('http://localhost:3001/api/TourActivity', payload);
+      return actTour;
+
+    } catch (error){
+      console.log(error)
+    }
   }
 }

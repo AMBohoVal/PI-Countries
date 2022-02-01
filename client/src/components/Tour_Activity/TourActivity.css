@@ -1,0 +1,54 @@
+.tourActivity {
+  background-image: url(../../img/BackCountries.png);
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulario {
+  width: 500px;
+  height: 250px;
+  padding: 70px 30px;
+  margin: 40px;
+  background-color:rgb(109, 134, 166);
+  color: rgb(6, 6, 75);
+  font-family: Tahoma;
+}
+
+label {
+  margin: 15px;
+  font-weight: bold;
+}
+
+input {
+  margin: 5px;
+}
+
+select {
+  margin: 15px;
+}
+
+h1 {
+  position: absolute;
+  font-family: Georgia;
+  font-size: 30px;
+  color:rgb(190, 222, 223);
+  margin-top: 55px;
+}
+
+p {
+  color: rgb(161, 37, 37);
+  align-items: center;
+}
+
+.botonX {
+  border-color: rgb(6, 6, 75);
+  width: 15px;
+  background-color: rgb(6, 6, 75);
+  color: white;
+}

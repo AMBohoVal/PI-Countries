@@ -1,0 +1,62 @@
+.details {
+  background-image: url(../../img/BackCountries.png);
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.counDet {
+  display: flex;
+  width: 500px;
+  height: 400px;
+  padding: 15px 15px 15px 15px;
+  background-color:rgb(109, 134, 166);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family:Tahoma;
+  color: rgb(6, 6, 75);
+}
+
+img {
+  border-radius: 15px;
+}
+
+h2 {
+  color: rgb(7, 7, 170);
+  font-size: 35px;
+}
+
+.back {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0.5em 1.2em;
+  background: rgba(0,0,0,0);
+  border: 2px solid;
+  border-color: rgb(7, 18, 161);
+  transition: all 1s ease;
+  position: relative;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.back:hover {
+  background: rgb(7, 18, 161);
+  color: white !important;
+}
+
+.back:focus {
+  color: white;
+  outline: 0;
+}
+
+.back:focus, .back:hover, .back:visited,
+.back:link, .back:active {
+    text-decoration: none;
+    color: white;
+  }
