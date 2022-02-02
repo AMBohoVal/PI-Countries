@@ -6,12 +6,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .titleLand {
   font-family: Georgia;
   font-size: 50px;
-  padding: 40px 40px;
+  margin: 20px;
   text-align: left;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
@@ -27,7 +31,7 @@
   display:flex;
   align-items: flex-start;
   justify-content: flex-end;
-  margin: 50px;
+  margin: 30px;
 }
 
 .buttonLand {

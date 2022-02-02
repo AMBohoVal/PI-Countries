@@ -12,7 +12,7 @@
 
 .formulario {
   width: 500px;
-  height: 250px;
+  height: 300px;
   padding: 70px 30px;
   margin: 40px;
   background-color:rgb(109, 134, 166);
@@ -29,11 +29,11 @@ input {
   margin: 5px;
 }
 
-select {
+.selForm {
   margin: 15px;
 }
 
-h1 {
+.tourTit {
   position: absolute;
   font-family: Georgia;
   font-size: 30px;
@@ -41,9 +41,17 @@ h1 {
   margin-top: 55px;
 }
 
-p {
+.error {
   color: rgb(161, 37, 37);
   align-items: center;
+}
+
+.pais {
+  color: rgb(6, 6, 75);
+  font-family: Tahoma;
+  float:left;
+  position: relative;
+  margin: 10px;
 }
 
 .botonX {

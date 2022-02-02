@@ -20,7 +20,7 @@
 }
 
 .filtro {
-  margin: 45px 5px 5px 5px;
+  margin: 15px 5px 5px 5px;
   border:1px solid #d9d9d9;
   height:30px;
   overflow: hidden;
@@ -29,7 +29,7 @@
   border-radius: 5px;
 }
 
-.filtro select {
+.filtro .selHome {
   background:white;
   border: none;
   font-size: 15px;
@@ -39,7 +39,7 @@
   font-family: 'Lucida Sans';
 }
 
-.filtro select:focus {
+.filtro .selHome:focus {
   outline: none;
 }
 
@@ -64,7 +64,7 @@
 } */
 
 .bfiltro {
-  margin: 40px 5px 5px 5px;
+  margin: 10px 5px 5px 5px;
   box-sizing: border-box;
   -webkit-appearance: none;
      -moz-appearance: none;

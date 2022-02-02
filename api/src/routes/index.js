@@ -32,7 +32,9 @@ router.get('/Country/:id', async (req, res, next) => {
   try{
     const {id} = req.params;
 
-    const countrieId = await Country.findByPk(id.toUpperCase());
+    const countrieId = await Country.findByPk(id.toUpperCase(), {
+      include: {model: Tourist_activity,},
+    });
     
     res.json(countrieId || 'ID de la ciudad no existe');
   } catch(error) {
@@ -57,14 +59,21 @@ router.get('/AllCountries', async(req, res, next) => {
 router.post('/TourActivity', async (req, res, next)=> {
   try{
     const {nameActivity, difficulty, span, season, country} = req.body;
-    const newTourActivity = await Tourist_activity.create({
+    let newTourActivity = await Tourist_activity.create({
       nameActivity,
       difficulty,
       span,
       season,
-      country
     })
-    res.send(newTourActivity)
+
+    let countryBd = await Country.findAll({
+      where : {nameCountry: country}
+    })
+
+    console.log(countryBd);
+    await newTourActivity.addCountry(countryBd);
+
+    res.send("Creo la actividad")
   } catch(error){
     next(error)
   }
@@ -72,9 +81,7 @@ router.post('/TourActivity', async (req, res, next)=> {
 
 router.get('/TourActivity', async(req, res, next) => {
   try{
-    const tourActivity = await Tourist_activity.findAll({
-      attributes: ['id', 'nameActivity', 'difficulty', 'span', 'season', 'country']
-    });
+    const tourActivity = await Tourist_activity.findAll();
 
     res.status(200).send(tourActivity)
 

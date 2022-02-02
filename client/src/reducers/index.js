@@ -1,10 +1,19 @@
-import { GET_COUNTRY, GET_COUNTRY_NAME, GET_DETAILS, FILTER_BY_CONTINENT, FILTER_BY_POPULATION, ORDER_BY_COUNTRY, GET_ONLY_COUNTRIES } from "../actions/index";
+import { 
+  GET_COUNTRY,
+  GET_COUNTRY_NAME,
+  GET_DETAILS,
+  FILTER_BY_CONTINENT,
+  FILTER_BY_POPULATION,
+  ORDER_BY_COUNTRY,
+  GET_ONLY_COUNTRIES,
+  GET_TOUR_ACTIVITY } from "../actions/index";
 
 const initialState = {
   country : [],
   allCountries : [],
   details : {},
-  onlyCountries: []
+  onlyCountries: [],
+  tourActivity: []
 }
 
 function rootReducer(state = initialState, action){
@@ -92,10 +101,11 @@ function rootReducer(state = initialState, action){
         onlyCountries: action.payload
       }
     
-    // case POST_TOUR_ACTIVITY:
-    //   return {
-    //     ...state,
-    //   }
+    case GET_TOUR_ACTIVITY:
+      return {
+        ...state,
+        tourActivity: action.payload
+      }
 
     default:
       return state;

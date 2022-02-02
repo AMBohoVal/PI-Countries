@@ -9,7 +9,9 @@ import './TourActivity.css';
 const Pais= styled.h4`
   color: rgb(6, 6, 75);
   font-family: Tahoma;
-`; 
+  float:inline-start;
+  position: relative;
+ `; 
 
 function validate(input){
   let error = {};
@@ -60,7 +62,7 @@ export default function TourActivity(){
     if(ev.target.checked){
       setInput({
         ...input,
-        status: ev.target.value
+        season: ev.target.value
       })
     }
     setError(validate({
@@ -74,7 +76,7 @@ export default function TourActivity(){
       ...input,
       country: [...input.country, ev.target.value]
     })
-    console.log(input.country);
+    console.log("Selec: " + input.country);
   }
 
   function handleDelete(el){
@@ -86,9 +88,9 @@ export default function TourActivity(){
 
   function handleSubmit(ev){
     ev.preventDefault();
-    console.log(input)
+    console.log("InputSub " + input)
     dispatch(postTourActivity(input))
-    alert("Se creo la actividad")
+    alert("Se creo la actividad");
     setInput({
       nameActivity: "",
       difficulty: "",
@@ -103,8 +105,8 @@ export default function TourActivity(){
 
   return (
     <div className='tourActivity'>
-      <h1>Creación de actividad turística</h1>
-      <form onSubmit={(ev)=> handleSubmit(ev)} className='formulario'>
+      <h1 className='tourTit'>Creación de actividad turística</h1>
+      <form className='formulario' onSubmit={(ev)=> handleSubmit(ev)}>
         <div>
           <label>Actividad Turistica: </label>
           <input 
@@ -134,7 +136,7 @@ export default function TourActivity(){
             value= {input.span}
             name= "span"
             onChange={(ev)=> handleChange(ev)}
-            placeholder="Cuanto tiempo se puede hacer esta actividad"
+            placeholder="Tiempo en horas"
           />
           {error.span && (<p className='error'>{error.span}</p>)}
         </div>
@@ -164,29 +166,34 @@ export default function TourActivity(){
             name= "spring"
             onChange={(ev)=> handleCheck(ev)}
           />Primavera</span>
+          <span><input 
+            type= "checkbox"
+            value= "anyone"
+            name= "anyone"
+            onChange={(ev)=> handleCheck(ev)}
+          />Cualquiera</span>
         </div>
         <div>
           <label>Paises:  
-            <select onChange={(ev)=> handleSelect(ev)}>
+            <select onChange={(ev)=> handleSelect(ev)} className='selForm'>
               {onlyCountries.map((oc)=> (
                 <option key={oc.nameCountry} value={oc.nameCountry}>{oc.nameCountry}</option>
               ))}
             </select>
           </label>
         </div>
-      </form>
-      {input.country.map(el => 
-          <div key={el} >
-            <Pais>{el}</Pais>
-            <button className='botonX' onClick={()=> handleDelete(el)}>x</button>
-          </div>)}
         <div>
           <button type='submit'>Crear</button>
           <Link to='/home' style={{ textDecoration: 'none' }}>
           <button>Regresar</button>
           </Link>
         </div>
-        
+        {input.country.map(el => 
+            <div key={el} className='pais'>
+              <Pais>{el}</Pais>
+              <button className='botonX' onClick={()=> handleDelete(el)}>x</button>
+            </div>)}
+      </form>
     </div>
   );
 }

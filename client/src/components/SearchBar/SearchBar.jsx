@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getCountryName } from '../../actions';
+import icono from '../../img/globo-terraqueo.png';
+import  './SearchBar.css';
 
 export default function SearchBar({setCurrentPage}){
   const dispatch = useDispatch();
@@ -21,14 +23,19 @@ export default function SearchBar({setCurrentPage}){
   }
   
     return (
-      <div>
-        <NavLink to="/TourActivity">Crear Actividad</NavLink>
-        <input 
-          type='text'
-          placeholder='Buscar pais'
-          onChange={(ev)=> handleInputChange(ev)}
-        />
-        <button type='submit' onClick={(ev)=> handleSubmit(ev)}>Buscar</button>
+      <div className='navbar'>
+        <NavLink to="/"><img src={icono} alt='Icono' className='icono'/></NavLink>
+        <NavLink to="/TourActivity" className='actForm'>
+              Crear Actividad</NavLink>
+        <div className='search'>
+          <input 
+            type='text'
+            placeholder='   Buscar pais'
+            onChange={(ev)=> handleInputChange(ev)}
+            className='inpser'
+          />
+          <button type='submit' onClick={(ev)=> handleSubmit(ev)} className='butser'>Buscar</button>
+        </div>
       </div>
     )
 }

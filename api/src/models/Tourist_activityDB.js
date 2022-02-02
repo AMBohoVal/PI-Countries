@@ -30,10 +30,10 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM('summer', 'winter', 'spring', 'autumn', 'anyone'),
       allowNull: false,
     },
-    country: {
-      //type: DataTypes.STRING,
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    }
+    // country: {
+    //   //type: DataTypes.STRING,
+    //   type: DataTypes.ARRAY(DataTypes.STRING),
+    //   allowNull: false,
+    // }
   });
 };

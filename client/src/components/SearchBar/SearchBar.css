@@ -1,0 +1,47 @@
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #3F4087;
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.icono {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-right: 700px;
+}
+
+.search {
+  display: flex;
+  margin-right: 70px;
+}
+
+.actForm {
+  text-decoration: none;
+  color: white;
+  font-family: Tahoma;
+  margin-right: 150px;
+  text-align: center;
+}
+
+.inpser {
+  font-family: Tahoma;
+  border-radius: 5px;
+  align-content: center;
+  border-style: groove;
+  border-color: white;
+}
+
+.butser {
+  width: 60px;
+  height: 25px;
+  margin-top: 3px;
+  border-radius: 7px;
+}
+
+

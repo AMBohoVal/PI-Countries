@@ -6,7 +6,7 @@ export const ORDER_BY_COUNTRY = 'ORDER_BY_COUNTRY';
 export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT';
 export const FILTER_BY_POPULATION = 'FILTER_BY_POPULATION';
 export const GET_ONLY_COUNTRIES = 'GET_ONLY_COUNTRIES';
-
+export const GET_TOUR_ACTIVITY = 'GET_TOUR_ACTIVITY';
 
 export function getCountry(){
   return async function (dispatch){
@@ -86,10 +86,21 @@ export function getOnlyCountries(){
 }
 
 export function postTourActivity(payload){
+  console.log("ActionPay " + payload);
   return async function (dispatch){
+    const actTour = await axios.post('http://localhost:3001/api/TourActivity', payload);
+    return actTour;
+  }
+}
+
+export function getTourActivity(){
+  return async function(dispatch){
     try{
-      const actTour = await axios.post('http://localhost:3001/api/TourActivity', payload);
-      return actTour;
+      const jsonActTour = await axios.get('http://localhost:3001/api/TourActivity');
+        return dispatch({
+          type: "GET_TOUR_ACTIVITY",
+          payload: jsonActTour.data
+        })
 
     } catch (error){
       console.log(error)
