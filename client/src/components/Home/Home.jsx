@@ -5,7 +5,8 @@ import { getCountry,
         filterCountryByContinent,
         orderByCountry,
         filterCountryByPopulation,
-        getTourActivity } from '../../actions';
+        getTourActivity,
+        countryByActivity } from '../../redux/actions';
 import './Home.css'
 import Card from '../Card/Card.jsx';
 import Pages from '../Pages/Pages.jsx';
@@ -24,10 +25,19 @@ export default function Home(){
   const indexOfFirstCountry = indexOfLastCountry - countryByPage;
   const currentCountry = allCountries.slice(indexOfFirstCountry,indexOfLastCountry);
 
+  const arrayActTour = actTour && actTour.map(act => act.nameActivity).sort();
+  let newActTour = [];
+
+  for (let i = 0; i < arrayActTour.length; i++) {
+    if(arrayActTour[i] !== arrayActTour[i+1]){
+      newActTour.push(arrayActTour[i]);
+    }
+  }
+
   const showPages = (pageNumber)=> {
     setCurrentPage(pageNumber);
   }
-
+  
   useEffect(()=> {
     dispatch(getCountry());
     dispatch(getTourActivity());
@@ -58,9 +68,9 @@ export default function Home(){
     setInOrder(`Ordenado ${ev.target.value}`)
   }
 
-  function handleActivityTour(ev){
+    function handleCountryActivity(ev){
     ev.preventDefault();
-    dispatch(getTourActivity(ev.target.value))
+    dispatch(countryByActivity(ev.target.value))
     setCurrentPage(1);
     setInOrder(`Ordenado ${ev.target.value}`)
   }
@@ -96,12 +106,12 @@ export default function Home(){
                 <option value='high'>Mayor población</option>
               </select>
             </div>
-            {/* <div className= "filtro">
-              <select onChange={ev=> handleActivityTour(ev)} className='selHome'>
-                <option value={'All'}>Por Actividad Turistica</option>
-                { actTour && actTour.map(act => <option key={act.nameActivity} value={act.id}>{act.nameActivity}</option>)}
+            <div className= "filtro">
+              <select onChange={ev=> handleCountryActivity(ev)} className='selHome'>
+                <option value={'All'}>Actividad</option>
+                { newActTour && newActTour.map(act => <option key={act} value={act}>{act}</option>)}
               </select>
-            </div> */}
+            </div>
             <div>
               <button onClick= {ev=> {handleClick(ev)}} className= "bfiltro">
                 Limpiar filtro

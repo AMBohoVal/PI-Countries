@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getCountryName } from '../../actions';
+import { getCountryName } from '../../redux/actions';
 import icono from '../../img/globo-terraqueo.png';
 import  './SearchBar.css';
 

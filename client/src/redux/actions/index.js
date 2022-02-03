@@ -7,6 +7,7 @@ export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT';
 export const FILTER_BY_POPULATION = 'FILTER_BY_POPULATION';
 export const GET_ONLY_COUNTRIES = 'GET_ONLY_COUNTRIES';
 export const GET_TOUR_ACTIVITY = 'GET_TOUR_ACTIVITY';
+export const COUNTRY_BY_ACTIVITY = 'COUNTRY_BY_ACTIVITY';
 
 export function getCountry(){
   return async function (dispatch){
@@ -31,7 +32,8 @@ export function getCountryName(countryQ){
             payload: jsonName.data
           })
     } catch (error){
-      console.log(error)
+      console.log(error);
+      alert("Pais no existe");
     }
   }
 }
@@ -107,3 +109,23 @@ export function getTourActivity(){
     }
   }
 }
+
+export function countryByActivity(payload) {
+  console.log("pay " + payload);
+  return {
+      type: "COUNTRY_BY_ACTIVITY",
+      payload
+  }
+};
+
+// export function getCountry() {
+//   return (dispatch) => {
+//     return fetch(`http://localhost:3001/api/Country`)
+//       .then(response => response.json())
+//       .then(countries => {
+//         dispatch({ 
+//               type: "GET_COUNTRY",
+//               payload: countries });
+//       });
+//   };
+// }

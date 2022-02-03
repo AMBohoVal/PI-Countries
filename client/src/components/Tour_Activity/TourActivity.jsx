@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { postTourActivity, getOnlyCountries } from '../../actions';
+import { postTourActivity, getOnlyCountries } from '../../redux/actions';
 import styled from 'styled-components';
 import './TourActivity.css';
 
@@ -17,14 +17,10 @@ function validate(input){
   let error = {};
   if(!input.nameActivity){
     error.nameActivity = "Se requiere el nombre de la actividad";
-  } else if(!input.span){
-      error.span = "Se requiere la duracion";
-     } 
-    //else if(!input.season){
-    //     error.season = "Debe seleccionar uno";
-    // } else if(!input.country){
-    //     error.country = "Debe seleccionar al menos un pais";
-    //   }
+  }
+  if(!input.span){
+    error.span = "Se requiere la duracion";
+    }
 
   return error;
 }
@@ -59,12 +55,11 @@ export default function TourActivity(){
   }
 
   function handleCheck(ev){
-    if(ev.target.checked){
-      setInput({
-        ...input,
-        season: ev.target.value
-      })
-    }
+    setInput({
+      ...input,
+      season: ev.target.value
+    })
+
     setError(validate({
       ...input,
       [ev.target.name]: ev.target.value
@@ -76,7 +71,10 @@ export default function TourActivity(){
       ...input,
       country: [...input.country, ev.target.value]
     })
-    console.log("Selec: " + input.country);
+    setError(validate({
+      ...input,
+      [ev.target.name]: ev.target.value
+    }));
   }
 
   function handleDelete(el){
@@ -88,9 +86,9 @@ export default function TourActivity(){
 
   function handleSubmit(ev){
     ev.preventDefault();
-    console.log("InputSub " + input)
+
     dispatch(postTourActivity(input))
-    alert("Se creo la actividad");
+      
     setInput({
       nameActivity: "",
       difficulty: "",
@@ -98,9 +96,10 @@ export default function TourActivity(){
       season: "",
       country: []
     })
+
+    alert("Se creo la actividad");
     
     getBack('/home')
-    
   }
 
   return (
@@ -142,36 +141,13 @@ export default function TourActivity(){
         </div>
         <div>
           <label>Temporada:</label>
-          <span><input 
-            type= "checkbox"
-            value= "summer"
-            name= "summer"
-            onChange={(ev)=> handleCheck(ev)}
-          />Verano</span>
-          <span><input 
-            type= "checkbox"
-            value= "autumn"
-            name= "autumn"
-            onChange={(ev)=> handleCheck(ev)}
-          />Otoño</span>
-          <span><input 
-            type= "checkbox"
-            value= "winter"
-            name= "winter"
-            onChange={(ev)=> handleCheck(ev)}
-          />Invierno</span>
-          <span><input 
-            type= "checkbox"
-            value= "spring"
-            name= "spring"
-            onChange={(ev)=> handleCheck(ev)}
-          />Primavera</span>
-          <span><input 
-            type= "checkbox"
-            value= "anyone"
-            name= "anyone"
-            onChange={(ev)=> handleCheck(ev)}
-          />Cualquiera</span>
+          <select onChange={(ev)=> handleCheck(ev)}>
+            <option value= "summer">Verano</option>
+            <option value= "autumn">Otoño</option>
+            <option value= "winter">Invierno</option>
+            <option value= "spring">Primavera</option>
+            <option value= "anyone">Cualquiera</option>
+          </select>
         </div>
         <div>
           <label>Paises:  
@@ -183,7 +159,7 @@ export default function TourActivity(){
           </label>
         </div>
         <div>
-          <button type='submit'>Crear</button>
+          <button type='submit' disabled={error.nameActivity || error.span ? true : false}>Crear</button>
           <Link to='/home' style={{ textDecoration: 'none' }}>
           <button>Regresar</button>
           </Link>

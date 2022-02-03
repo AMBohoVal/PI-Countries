@@ -10,9 +10,11 @@ router.get('/Country', async (req, res, next)=> {
   try {
     const {countryQ} = req.query;
     const list = await Country.findAll({
-      attributes: ['nameCountry', 'continent', 'flag', 'id', 'capital', 'subregion', 'area', 'population', 'coatOfArms']
+      include: {model: Tourist_activity,},
     });
-    
+    // {
+    //   attributes: ['nameCountry', 'continent', 'flag', 'id', 'capital', 'subregion', 'area', 'population', 'coatOfArms']
+    // }
     //let countriesApi = await getApiInfo();
 
     if(countryQ){
@@ -70,7 +72,6 @@ router.post('/TourActivity', async (req, res, next)=> {
       where : {nameCountry: country}
     })
 
-    console.log(countryBd);
     await newTourActivity.addCountry(countryBd);
 
     res.send("Creo la actividad")

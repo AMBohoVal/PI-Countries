@@ -64,7 +64,7 @@ La idea general es crear una aplicación en la cual se pueda ver información de
 
   - Buscar paises ✅
   - Filtrarlos / Ordenarlos ✅
-  - Crear actividades turísticas ❌
+  - Crear actividades turísticas ✅
 
 __IMPORTANTE__: Para las funcionalidades de filtrado y ordenamiento NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados sino que deben realizarlo ustedes mismos. En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend.
 
@@ -104,25 +104,25 @@ __Ruta principal__: debe contener
 - [ ] ✅Botones/Opciones para ordenar tanto ascendentemente ✅ como descendentemente ✅ los países por orden alfabético y por cantidad de población ✅
 - [ ] ✅Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
 
-__Ruta de detalle de país__: debe contener 
+✅__Ruta de detalle de país__: debe contener 
 - [ ] Los campos mostrados en la ruta principal para cada país (imagen de la bandera, nombre, código de país de 3 letras y continente)
 - [ ] Código de país de 3 letras (id) ✅
 - [ ] Capital ✅
 - [ ] Subregión ✅
 - [ ] Área (Mostrarla en km2 o millones de km2) ✅
 - [ ] Población ✅
-- [ ] Actividades turísticas con toda su información asociada ❌
+- [ ] Actividades turísticas con toda su información asociada ✅
 
-❌__Ruta de creación de actividad turística__: debe contener
+✅__Ruta de creación de actividad turística__: debe contener
 - [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
-  - Nombre
-  - Dificultad
-  - Duración
-  - Temporada
-- [ ] Posibilidad de seleccionar/agregar varios países en simultáneo
-- [ ] Botón/Opción para crear una nueva actividad turística
+  - Nombre ✅
+  - Dificultad ✅
+  - Duración ✅
+  - Temporada ✅
+- [ ] Posibilidad de seleccionar/agregar varios países en simultáneo ✅
+- [ ] Botón/Opción para crear una nueva actividad turística ✅
 
-> Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre de la actividad no pueda contener símbolos, que la duración no pueda exceder determinado valor, etc.
+> Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre de la actividad no pueda contener símbolos, que la duración no pueda exceder determinado valor, etc. ✅
 
 #### Base de datos
 
@@ -158,12 +158,12 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 - [ ] ✅__GET /countries/{idPais}__:
   - Obtener el detalle de un país en particular ✅
   - Debe traer solo los datos pedidos en la ruta de detalle de país ✅
-  - Incluir los datos de las actividades turísticas correspondientes ❌
+  - Incluir los datos de las actividades turísticas correspondientes ✅
 - [ ] ✅__GET /countries?name="..."__:
   - Obtener los países que coincidan con el nombre pasado como query parameter (No necesariamente tiene que ser una matcheo exacto)
   - Si no existe ningún país mostrar un mensaje adecuado
-- [ ] __POST /activity__: ❌
-  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de actividad turística por body
+- [ ] ✅__POST /activity__: 
+  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de actividad turística por body ✅
   - Crea una actividad turística en la base de datos ✅
 
 

@@ -6,14 +6,15 @@ import {
   FILTER_BY_POPULATION,
   ORDER_BY_COUNTRY,
   GET_ONLY_COUNTRIES,
-  GET_TOUR_ACTIVITY } from "../actions/index";
+  GET_TOUR_ACTIVITY,
+  COUNTRY_BY_ACTIVITY } from "../actions/index";
 
 const initialState = {
   country : [],
   allCountries : [],
   details : {},
   onlyCountries: [],
-  tourActivity: []
+  tourActivity: [],
 }
 
 function rootReducer(state = initialState, action){
@@ -107,9 +108,49 @@ function rootReducer(state = initialState, action){
         tourActivity: action.payload
       }
 
+    case COUNTRY_BY_ACTIVITY:
+    const filcountry = state.country;
+    const actFilter = action.payload === 'All' ? filcountry : filcountry.filter(c => c.tourist_activities.find(a => a.nameActivity === action.payload))
+      return {
+      ...state,
+      country: actFilter
+      }
+    
+    // const actFilter = action.payload === 'All' ? filcountry : filcountry.filter(ac => {
+    //       if(ac.tourist_activities?.length){
+    //         for(let i = 0; i< ac.tourist_activities.lenght; i++){
+    //             if(ac.tourist_activities[i].nameActivity === action.payload){
+    //               return true;
+    //             }
+    //           }
+    //       return undefined;
+    //       }  
+    //   })
+    //   return {
+    //   ...state,
+    //   countryActivity: actFilter
+    //   }
+      
+      // const actFilter = action.payload === 'All' ? state.country : state.country.filter(co => 
+      //   co.tourist_activities && co.tourist_activities.map(ac => ac.nameActivity).includes(action.payload))
+      // console.log("actFilter " + action.payload);
+      // return {
+      // ...state,
+      // countryActivity: actFilter
+      // }
+
     default:
       return state;
   }
 }
+
+// const actFilter = action.payload === 'All' ? state.country : state.country.filter(co => 
+      //   co.tourActivity && co.tourActivity.map(ac => ac.nameActivity).includes(action.payload))
+      // console.log("actFilter " + action.payload);
+      // return {
+      // ...state,
+      // countryActivity: actFilter
+      // }
+
 
 export default rootReducer;
