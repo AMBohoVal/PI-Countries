@@ -29,7 +29,10 @@ export default function TourActivity(){
   const dispatch = useDispatch();
   const getBack = useNavigate();
   const onlyCountries = useSelector((state)=> state.onlyCountries);
-  const [error, setError] = useState({});
+  const [error, setError] = useState({
+    nameActivity: "Se requiere el nombre de la actividad",
+    span: ""
+  });
 
   const [input, setInput] = useState({
     nameActivity: "",

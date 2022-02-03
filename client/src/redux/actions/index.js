@@ -120,12 +120,16 @@ export function countryByActivity(payload) {
 
 // export function getCountry() {
 //   return (dispatch) => {
-//     return fetch(`http://localhost:3001/api/Country`)
-//       .then(response => response.json())
-//       .then(countries => {
-//         dispatch({ 
-//               type: "GET_COUNTRY",
-//               payload: countries });
-//       });
+//     try{
+//       return fetch(`http://localhost:3001/api/Country`)
+//         .then(response => response.json())
+//         .then(countries => {
+//           dispatch({ 
+//                 type: "GET_COUNTRY",
+//                 payload: countries });
+//         });
+//     } catch (error){
+//       console.log(error)
+//     }
 //   };
 // }

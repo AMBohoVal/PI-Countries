@@ -24,7 +24,7 @@ const Bandera = styled.img`
 export default function Card({nameCountry, continent, flag,id}){
   return (
     <div className= "country">
-      <Link to={`/country/${id}`}><Bandera src={flag} alt="No existe bandera"/></Link>
+      <Link to={`/Country/${id}`}><Bandera src={flag} alt="No existe bandera"/></Link>
       <Pais>{nameCountry}</Pais>
       <Continente>{continent}</Continente>
     </div>
