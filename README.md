@@ -77,3 +77,5 @@ Servidor en Node/Express con las siguientes rutas:
 - [ ] __GET /países__: Se organiza la información de acuerdo a los campos solicitados en la base de datos, se obtiene el país que coincida con un parámetro pasado por query y esta información es guardada en la base de datos. Al ejecutar esta ruta genera un listado de países.
 - [ ] __GET /países/{idPaís}__: Se obtiene el detalle particular de un país con los datos de la actividad turística, esta información se obtiene por el id.
 - [ ] __POST /actividad__:  Recibe los datos enviados por el formulario y se guardan en la base de datos.
+# PI-Countries
+Single Project at Henry
